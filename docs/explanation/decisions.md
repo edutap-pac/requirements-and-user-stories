@@ -24,6 +24,8 @@ It exists so that a future contributor can tell the difference between a deliber
 | D19 | Installers have no access to PAC, and commissioning happens from the office. | Physical installation is frequently contracted out. The trust boundary between fitting a device and taking it into service must be a property of the system, not of the rollout schedule. |
 | D20 | Every access point belongs to exactly one site, and delegation follows formal room allocation. | Shared ownership does not occur in practice, and negotiating delegation case by case would scale poorly across thousands of doors. |
 | D21 | Room allocation and floor plans are imported from facility management, never edited in PAC. | The same principle as the identity boundary, applied to space: reference what another system owns instead of becoming a second place where it is edited. |
+| D22 | The VAPIX client is a standalone package in its own repository, not part of PAC. | It is not PAC-specific, it can be tested against real hardware independently of the PAC release cycle, and separating it keeps the device gateway to reconciliation logic rather than protocol handling. It is also what makes the open hardware questions answerable before PAC exists. |
+| D23 | Open items and component epics are tracked as GitHub issues rather than in the documentation. | Discussion belongs where the stakeholders are. A second list in the documentation would drift from the first. |
 
 ## Decisions still open
 
