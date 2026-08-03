@@ -32,6 +32,9 @@ Inside the core it remains a modular monolith.
 Module boundaries are enforced in code, not by network calls.
 At the current team size, further decomposition would add operational cost without enforcing any boundary that matters.
 
+The one piece deliberately kept outside both deployables is the **VAPIX client**, which lives in its own repository and is consumed as a library.
+It is not specific to access control, it can be exercised against real hardware without a PAC release, and separating it stops protocol handling from creeping into reconciliation logic.
+
 ## Technology
 
 | Layer | Choice |
@@ -42,6 +45,7 @@ At the current team size, further decomposition would add operational cost witho
 | Configuration | pydantic-settings, backed by configuration files per `PAC-NFR-09` |
 | Persistence | SQLModel or SQLAlchemy on PostgreSQL |
 | Messaging | Kafka |
+| Controller protocol | A standalone VAPIX client package in its own repository, built on `httpx.AsyncClient` with digest authentication and Pydantic v2 models. See D22. |
 | Primary user interface | React with WebSockets |
 | Fallback user interface | htmx, where justified under `PAC-UIX-03` |
 | Documentation | Sphinx with MyST |

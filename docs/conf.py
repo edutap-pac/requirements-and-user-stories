@@ -28,6 +28,9 @@ html_theme = "furo"
 html_static_path = ["_static"]
 html_title = "eduTAP PAC"
 
+# Canonical location once the site is published to GitHub Pages.
+html_baseurl = "https://edutap-pac.github.io/requirements-and-user-stories/"
+
 _REPOSITORY = "https://github.com/edutap-pac/requirements-and-user-stories/"
 
 html_theme_options = {

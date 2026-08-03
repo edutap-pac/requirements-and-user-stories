@@ -25,6 +25,18 @@ make serve
 
 `make help` lists the available targets.
 
+Every push and pull request builds the documentation in CI and uploads it as the
+`documentation` artifact, which reviewers can download and open locally.
+
+Publishing to GitHub Pages is prepared but switched off. GitHub Pages is
+unavailable for private repositories on the Free plan, so the deploy job stays
+inert until the repository is public and Pages is enabled with **GitHub Actions**
+as its source. Then:
+
+```shell
+gh variable set PUBLISH_DOCS --body true
+```
+
 ## Layout
 
 | Path | Content |
